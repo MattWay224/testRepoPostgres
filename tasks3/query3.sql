@@ -11,4 +11,4 @@ SELECT
         ORDER BY payment_date) - amount
     AS difference   /* если нет знака - следующий платеж больше
                        или равен, если присутствует -, то следующий платеж меньше текущего */
-FROM payment
+FROM payment;
