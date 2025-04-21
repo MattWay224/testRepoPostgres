@@ -23,3 +23,10 @@ WHERE payment_date BETWEEN '2005-06-17' AND '2005-06-19 23:59:59'
   AND amount > 1.00
 ORDER BY payment_date;
 
+/*
+ Выведите информацию о 10-ти последних платежах за прокат фильмов.
+ */
+SELECT *
+FROM payment
+ORDER BY payment_date DESC
+LIMIT 10;
