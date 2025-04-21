@@ -17,4 +17,4 @@ SELECT
 FROM customer
 JOIN rental ON customer.customer_id = rental.customer_id
 JOIN payment ON payment.rental_id = rental.rental_id
-GROUP BY customer.customer_id, customer.first_name, customer.last_name
+GROUP BY customer.customer_id, customer.first_name, customer.last_name;

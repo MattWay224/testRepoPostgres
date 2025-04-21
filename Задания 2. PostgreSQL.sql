@@ -69,7 +69,7 @@ SELECT
 FROM customer
          JOIN rental ON customer.customer_id = rental.customer_id
          JOIN payment ON payment.rental_id = rental.rental_id
-GROUP BY customer.customer_id, customer.first_name, customer.last_name
+GROUP BY customer.customer_id, customer.first_name, customer.last_name;
 
 /*
  Задание 5. Используя данные из таблицы городов, составьте одним запросом всевозможные пары городов так,
@@ -83,3 +83,17 @@ SELECT
 FROM city c1
          CROSS JOIN city c2
 WHERE c1.city <> c2.city;
+
+/*
+ Задание 6. Используя данные из таблицы rental о дате выдачи фильма в аренду
+ (поле rental_date) и дате возврата (поле return_date), вычислите для каждого покупателя среднее количество дней,
+ за которые он возвращает фильмы.
+ */
+
+SELECT
+    rental_id,
+    customer_id,
+    avg(extract(DAY FROM return_date - rental_date)) AS days_amount
+FROM rental
+WHERE return_date IS NOT NULL
+GROUP BY rental_id, customer_id;
