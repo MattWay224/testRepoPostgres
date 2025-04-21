@@ -71,3 +71,15 @@ FROM customer
          JOIN payment ON payment.rental_id = rental.rental_id
 GROUP BY customer.customer_id, customer.first_name, customer.last_name
 
+/*
+ Задание 5. Используя данные из таблицы городов, составьте одним запросом всевозможные пары городов так,
+ чтобы в результате не было пар с одинаковыми названиями городов.
+ Для решения необходимо использовать декартово произведение.
+ */
+
+SELECT
+    c1.city AS first_city,
+    c2.city AS second_city
+FROM city c1
+         CROSS JOIN city c2
+WHERE c1.city <> c2.city;
