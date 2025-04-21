@@ -72,3 +72,11 @@ FROM film
 WHERE
     (rating = 'R' AND rental_rate BETWEEN 0.00 AND 3.00)
    OR (rating = 'PG-13' AND rental_rate >= 4.00);
+
+/*
+ Задание 8. Получите информацию о трёх фильмах с самым длинным описанием фильма.
+ */
+SELECT *
+FROM film
+ORDER BY length(description) DESC
+LIMIT 3;
