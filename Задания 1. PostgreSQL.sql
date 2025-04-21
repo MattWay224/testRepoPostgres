@@ -90,3 +90,13 @@ SELECT
     split_part(email, '@', 1) AS "Имя пользователя",
     split_part(email, '@', -1) AS "Домен"
 FROM customer;
+
+/*
+ Задание 10. Доработайте запрос из предыдущего задания, скорректируйте значения
+ в новых колонках: первая буква должна быть заглавной, остальные строчными.
+ */
+
+SELECT
+    initcap(split_part(email, '@', 1)) AS "Имя пользователя",
+    initcap(split_part(email, '@', -1)) AS "Домен"
+FROM customer;
