@@ -80,3 +80,13 @@ SELECT *
 FROM film
 ORDER BY length(description) DESC
 LIMIT 3;
+
+/*
+ Задание 9. Выведите Email каждого покупателя, разделив значение Email на 2 отдельных колонки:
+в первой колонке должно быть значение, указанное до @,
+во второй колонке должно быть значение, указанное после @.
+ */
+SELECT
+    split_part(email, '@', 1) AS "Имя пользователя",
+    split_part(email, '@', -1) AS "Домен"
+FROM customer;
